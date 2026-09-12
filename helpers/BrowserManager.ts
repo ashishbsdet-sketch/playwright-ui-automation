@@ -1,32 +1,20 @@
-type ContextOptions = any;
+import type { BrowserContextOptions } from '@playwright/test';
 
 export class BrowserManager {
-  static getContextOptions(projectName?: string): ContextOptions {
-    const common = {
+  static getContextOptions(projectName?: string): BrowserContextOptions {
+    const common: BrowserContextOptions = {
       viewport: { width: 1280, height: 720 },
       permissions: []
     };
 
-    switch ((projectName || '').toLowerCase()) {
-      case 'chromium':
-        return {
-          ...common,
-          // chromium-specific tweaks can go here
-        };
-      case 'firefox':
-        return {
-          ...common,
-          // firefox-specific tweaks
-          firefoxUserPrefs: { 'privacy.trackingprotection.enabled': false }
-        };
-      case 'webkit':
-        return {
-          ...common,
-          // webkit-specific tweaks
-        };
-      default:
-        return common;
+    if ((projectName || '').toLowerCase() === 'firefox') {
+      return {
+        ...common,
+        firefoxUserPrefs: { 'privacy.trackingprotection.enabled': false }
+      };
     }
+
+    return common;
   }
 }
 

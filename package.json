@@ -1,10 +1,14 @@
 {
-  "name": "playwright-ui-tests",
+  "name": "playwright-ui-automation",
   "version": "1.0.0",
+  "description": "Production-style Playwright and TypeScript UI automation portfolio",
   "private": true,
   "scripts": {
-    "test": "playwright test --project=chromium --workers=1",
-    "test:headed": "playwright test --headed --workers=1",
+    "test": "playwright test --project=chromium",
+    "test:all": "playwright test",
+    "test:headed": "playwright test --headed --project=chromium",
+    "test:debug": "playwright test --debug --project=chromium",
+    "test:typecheck": "tsc --noEmit",
     "report": "playwright show-report",
     "report:enhanced": "node scripts/generate-enhanced-report.js",
     "mcp:start": "node mcp-server/index.js",

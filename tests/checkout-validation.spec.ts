@@ -3,16 +3,21 @@ import { LoginPage } from '../pages/LoginPage';
 import { InventoryPage } from '../pages/InventoryPage';
 import { CartPage } from '../pages/CartPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
+import { HeaderPage } from '../pages/HeaderPage';
 
 test.describe('checkout validation', () => {
-  test('shows error if information missing', async ({ page }) => {
+  test('shows an error when customer information is missing', async ({ page }) => {
     const login = new LoginPage(page);
     await login.open();
-    await login.signIn(process.env.USERNAME || 'standard_user', process.env.PASSWORD || 'secret_sauce');
+    await login.signIn(
+      process.env.USERNAME || 'standard_user',
+      process.env.PASSWORD || 'secret_sauce'
+    );
 
     const inventory = new InventoryPage(page);
     await inventory.addToCartByName('Sauce Labs Backpack');
-    const header = new (await import('../pages/HeaderPage')).HeaderPage(page);
+
+    const header = new HeaderPage(page);
     await header.openCart();
 
     const cart = new CartPage(page);
@@ -20,6 +25,6 @@ test.describe('checkout validation', () => {
 
     const checkout = new CheckoutPage(page);
     await checkout.continueWithoutInfo();
-    await expect(checkout.getErrorMessage()).toBeVisible();
+    await expect(checkout.getErrorMessage()).toContainText('First Name is required');
   });
 });
