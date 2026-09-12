@@ -1,0 +1,58 @@
+<testsuites id="" name="" tests="16" failures="0" skipped="0" errors="0" time="19.478079">
+<testsuite name="cart.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.884" errors="0">
+<testcase name="cart › add and remove items from cart" classname="cart.spec.ts" time="1.884">
+</testcase>
+</testsuite>
+<testsuite name="checkout-validation.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.021" errors="0">
+<testcase name="checkout validation › shows error if information missing" classname="checkout-validation.spec.ts" time="1.021">
+</testcase>
+</testsuite>
+<testsuite name="e2e.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="2" failures="0" skipped="0" time="2.244" errors="0">
+<testcase name="e2e flows › purchase flow completes successfully" classname="e2e.spec.ts" time="0.783">
+</testcase>
+<testcase name="e2e flows › user can logout from inventory" classname="e2e.spec.ts" time="1.461">
+</testcase>
+</testsuite>
+<testsuite name="login.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="2" failures="0" skipped="0" time="0.965" errors="0">
+<testcase name="authentication › standard user can sign in" classname="login.spec.ts" time="0.508">
+</testcase>
+<testcase name="authentication › invalid credentials show a useful error" classname="login.spec.ts" time="0.457">
+</testcase>
+</testsuite>
+<testsuite name="product.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.765" errors="0">
+<testcase name="product page › can open product details and return" classname="product.spec.ts" time="0.765">
+</testcase>
+</testsuite>
+<testsuite name="sorting.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="chromium" tests="1" failures="0" skipped="0" time="0.564" errors="0">
+<testcase name="sorting › sort products by price low to high" classname="sorting.spec.ts" time="0.564">
+</testcase>
+</testsuite>
+<testsuite name="cart.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="1" failures="0" skipped="0" time="1.743" errors="0">
+<testcase name="cart › add and remove items from cart" classname="cart.spec.ts" time="1.743">
+</testcase>
+</testsuite>
+<testsuite name="checkout-validation.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="1" failures="0" skipped="0" time="1.054" errors="0">
+<testcase name="checkout validation › shows error if information missing" classname="checkout-validation.spec.ts" time="1.054">
+</testcase>
+</testsuite>
+<testsuite name="e2e.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="2" failures="0" skipped="0" time="2.912" errors="0">
+<testcase name="e2e flows › purchase flow completes successfully" classname="e2e.spec.ts" time="1.171">
+</testcase>
+<testcase name="e2e flows › user can logout from inventory" classname="e2e.spec.ts" time="1.741">
+</testcase>
+</testsuite>
+<testsuite name="login.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="2" failures="0" skipped="0" time="1.226" errors="0">
+<testcase name="authentication › standard user can sign in" classname="login.spec.ts" time="0.65">
+</testcase>
+<testcase name="authentication › invalid credentials show a useful error" classname="login.spec.ts" time="0.576">
+</testcase>
+</testsuite>
+<testsuite name="product.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="1" failures="0" skipped="0" time="0.816" errors="0">
+<testcase name="product page › can open product details and return" classname="product.spec.ts" time="0.816">
+</testcase>
+</testsuite>
+<testsuite name="sorting.spec.ts" timestamp="2026-09-12T18:05:17.876Z" hostname="firefox" tests="1" failures="0" skipped="0" time="0.92" errors="0">
+<testcase name="sorting › sort products by price low to high" classname="sorting.spec.ts" time="0.92">
+</testcase>
+</testsuite>
+</testsuites>

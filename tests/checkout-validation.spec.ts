@@ -1,0 +1,25 @@
+import { test, expect } from '../helpers/hooks';
+import { LoginPage } from '../pages/LoginPage';
+import { InventoryPage } from '../pages/InventoryPage';
+import { CartPage } from '../pages/CartPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
+
+test.describe('checkout validation', () => {
+  test('shows error if information missing', async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.open();
+    await login.signIn(process.env.USERNAME || 'standard_user', process.env.PASSWORD || 'secret_sauce');
+
+    const inventory = new InventoryPage(page);
+    await inventory.addToCartByName('Sauce Labs Backpack');
+    const header = new (await import('../pages/HeaderPage')).HeaderPage(page);
+    await header.openCart();
+
+    const cart = new CartPage(page);
+    await cart.proceedToCheckout();
+
+    const checkout = new CheckoutPage(page);
+    await checkout.continueWithoutInfo();
+    await expect(checkout.getErrorMessage()).toBeVisible();
+  });
+});
