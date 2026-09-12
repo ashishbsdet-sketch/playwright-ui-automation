@@ -39,12 +39,19 @@ jobs:
         run: npm run test:typecheck
 
       - name: Run Chromium regression
+        id: playwright_tests
+        continue-on-error: true
         env:
           URL: ${{ secrets.URL || 'https://www.saucedemo.com' }}
           USERNAME: ${{ secrets.USERNAME || 'standard_user' }}
           PASSWORD: ${{ secrets.PASSWORD || 'secret_sauce' }}
           HOME: /root
         run: npm test
+
+      - name: Publish test counts
+        id: test_summary
+        if: always()
+        run: python3 .github/scripts/publish_test_summary.py
 
       - name: Upload Playwright report
         if: always()
@@ -56,10 +63,16 @@ jobs:
           retention-days: 14
 
       - name: Upload failure diagnostics
-        if: failure()
+        if: steps.playwright_tests.outcome == 'failure'
         uses: actions/upload-artifact@v4
         with:
           name: test-results-${{ github.run_number }}
           path: test-results/
           if-no-files-found: ignore
           retention-days: 7
+
+      - name: Fail workflow when tests fail
+        if: steps.playwright_tests.outcome == 'failure'
+        run: |
+          echo "::error title=Regression failed::${{ steps.test_summary.outputs.failed }} failed, ${{ steps.test_summary.outputs.passed }} passed"
+          exit 1
